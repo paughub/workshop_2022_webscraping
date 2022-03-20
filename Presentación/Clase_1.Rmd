@@ -1,0 +1,99 @@
+---
+title: "Workshop Web Scraping"
+subtitle: "Clase 1: Introducción y Web Scraping estatico"
+author: "Data Science UC"
+institute: "Pontificia Universidad Católica de Chile"
+date: "Abril 2021"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs      # crea un directorio para bibliotecas
+    css: 
+      # el archivo CSS del tema predeterminado para xaringan
+      - default           # el archivo CSS del tema (nhsr)
+      - rladies-fonts     # el archivo CSS de fuentes del tema R-Ladies
+    seal: false           # false: permite crear una diapositiva de título personalizada
+    nature:
+      highlightStyle: github   # resalta sintaxis para los bloques de código
+      highlightLines: true     # true: permite resaltar líneas de código
+      countIncrementalSlides: false  # false: diapositivas incrementales no aumentarán la cuenta
+      ratio: "4:3"      # proporción: "16:9" para un tamaño de pantalla ancha
+---
+class: left, bottom
+background-image: url(media/ds6.jpg)
+background-size: cover
+ 
+.left[<img src="media/logo.png" style="width: 40%" />]
+
+<br>
+<br>
+
+# **`r rmarkdown::metadata$title`**
+----
+## `r rmarkdown::metadata$subtitle`
+### `r rmarkdown::metadata$institute`
+##### `r rmarkdown::metadata$date`
+<br>
+<br>
+---
+class: left, middle
+
+# Clase 1: Introducción y Web Scraping estatico"
+
+----
+
+.pull-left[
+.left[
+
+* [**Recomendaciones iniciales**](#rec)
+
+* [**Introducción**](#intro)
+
+* [**R, RStudio y RStudioCloud**](#erre)
+
+* [**Directorios de trabajo y proyectos**](#proyectos)
+
+]
+
+] <!--end of left-column-->
+
+.pull-right[
+.left[
+
+* [**Paquetes**](#paquetes)
+
+* [**Cálculos**](#calculos)
+
+* [**Actividades practicas**](#practica)
+
+* [**Referencias y material complementario**](#adios)
+]
+
+] <!--end of right-column-->
+
+---
+name: rec
+class: inverse, center, middle
+
+# Recomendaciones Iniciales
+
+---
+# Recomendaciones Iniciales
+
+
+- Usaremos un script de R compartido para que puedas seguir la ejecución del código. Los scripts se compartirán en la siguiente [carpeta](https://github.com/DiegoHoliwis/Primeros_pasos_R_2021).
+
+- Usaremos el Chat de Zoom para consultas y comentarios del contenido que se está viendo en la clase.
+
+- Usaremos el foro de la plataforma del curso para consultas y comentarios de contenidos complementarios a la clase
+
+- Participa en el curso a través de las encuestas de zoom, botones de
+participación y chat.
+
+- Trata de tener más de una pantalla, puede ser tu celular, una tablet o incluso un televisor. Esto te permitirá ver al mismo tiempo las clases y ejecutar el código.
+
+.center[
+<img src="media/pantallas.png" width="300px">
+]
+
+
+
