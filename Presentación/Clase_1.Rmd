@@ -95,5 +95,30 @@ participación y chat.
 <img src="media/pantallas.png" width="300px">
 ]
 
+---
+name: intro
+class: inverse, center, middle
+
+# Introducción
+
+---
+# ¿Qué es Web Scraping?
+
+.center[<img src="media/webscraping.jpg">]
+
+---
+# ¿Cómo funciona el Web Scraping?
+
+1) Realeza una consulta
+
+.center[<img src="media/ConsultasWEB.png">]
+
+---
+name: intro
+class: inverse, center, middle
+
+# Cuestiones éticas y legales
+
+---
 
 
