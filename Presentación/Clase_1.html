@@ -22,7 +22,7 @@ background-size: cover
 
 # **Workshop Web Scraping**
 ----
-## Clase 1: Introducción y Web Scraping estatico
+## Clase 1: Introducción al Web Scraping
 ### Pontificia Universidad Católica de Chile
 ##### Abril 2021
 &lt;br&gt;
@@ -30,7 +30,7 @@ background-size: cover
 ---
 class: left, middle
 
-# Clase 1: Introducción y Web Scraping estatico"
+# Clase 1: Introducción al Web Scraping
 
 ----
 
@@ -41,9 +41,9 @@ class: left, middle
 
 * [**Introducción**](#intro)
 
-* [**R, RStudio y RStudioCloud**](#erre)
+* [**Cuestiones éticas y legales**](#etica)
 
-* [**Directorios de trabajo y proyectos**](#proyectos)
+* [**Introducción a HTML**](#html)
 
 ]
 
@@ -52,11 +52,11 @@ class: left, middle
 .pull-right[
 .left[
 
-* [**Paquetes**](#paquetes)
+* [**rvest**](#rvest)
 
-* [**Cálculos**](#calculos)
+* [**Actividad**](#actividad1)
 
-* [**Actividades practicas**](#practica)
+* [**RSelenium**](#rselenium)
 
 * [**Referencias y material complementario**](#adios)
 ]
@@ -77,8 +77,6 @@ class: inverse, center, middle
 
 - Usaremos el Chat de Zoom para consultas y comentarios del contenido que se está viendo en la clase.
 
-- Usaremos el foro de la plataforma del curso para consultas y comentarios de contenidos complementarios a la clase
-
 - Participa en el curso a través de las encuestas de zoom, botones de
 participación y chat.
 
@@ -95,24 +93,165 @@ class: inverse, center, middle
 # Introducción
 
 ---
+
+# ¿Cómo funciona una página web?
+
+- Realeza una consulta al servidor web
+- El servidor determina la pagina web que quiere consultar
+- Se envía la información en un formato HTML
+
+
+.center[&lt;img src="media/ConsultasWEB.png"&gt;]
+
+---
 # ¿Qué es Web Scraping?
 
 .center[&lt;img src="media/webscraping.jpg"&gt;]
 
 ---
-# ¿Cómo funciona el Web Scraping?
-
-1) Realeza una consulta
-
-.center[&lt;img src="media/ConsultasWEB.png"&gt;]
-
----
-name: intro
+name: etica
 class: inverse, center, middle
 
 # Cuestiones éticas y legales
 
 ---
+
+# Problemas para el sitio WEB
+
+Los propietarios de sitios WEB, justificadamente intentan protegerse de sistemas de web scraping, ya que estos pueden incurrir en problemas para ellos, por ejemplo:
+
+- El robo de información puede otorgar al 'ladrón' ventaja competitiva
+- El sitio web puede fallar, debido a que el web scraping de forma masiva puede generar un ataque DDoS
+- Entre otros
+
+.center[&lt;img src="media/DDoS.png" height="300"&gt;]
+
+---
+
+# Métodos de prevención del web scraping
+
+Algunos sistemas para protegerse de web scraping son:
+
+- **crawler anti-scraping**: Estudia el número y frecuencia en que una misma IP realiza consultas al sitio web, en el momento en que se detecte un sistema extraño esta P será bloqueada.
+- **reCaptcha**: Sistema de detección de robot diseñado por Google.
+- **User-Agent**: es un encabezado del sitio web para identificar como visita al usuario. Se usa información del sistema operativo, versión, tipo CPU, etc.
+
+.center[&lt;img src="media/reCAPTCHA.jpg" height="300"&gt;]
+
+---
+
+# Directrices para un web scraping ético y responsable
+
+Algunas directrices para no ser un web scraper malvado son:
+
+- Preferir las API sobre el Web Scraping siempre que sea posible
+- Leer los terminos y condiciones para saber si la página web esta abierta a realizar web scraping o sobre el uso de los datos web scrapeados
+  - [Amazon](https://www.amazon.com/-/es/gp/help/customer/display.html?nodeId=GLSBYFE9MGKKQXXM)
+  - [Wikipedia](https://es.wikipedia.org/robots.txt)
+- Establecer un tiempo entre consultas adecuado. El tiempo entre ejecución puede estar publicado en los archivos robot.txt de la páginas web, en caso contrario puede esperar al menos 10-15 segundos.
+
+---
+name: html
+class: inverse, center, middle
+
+# Introducción a HTML
+
+---
+
+# ¿Qué es el HTML?
+
+- HTML es el lenguaje estándar para la creación de páginas web
+- Describe la estructura de la página web
+- Le indica al explorador que y como mostrar el contenido
+- Las etiquetas de HTML indican el tipo de contenido, sea: párrafos, títulos, vínculos, etc.
+
+.center[&lt;img src="media/QUE_ES_HTML.jpg" height="350"&gt;]
+
+---
+
+# ¿Cómo funciona HTML?
+
+.center[&lt;img src="media/HTML.jpg"&gt;]
+
+---
+
+# Anatomia de HTML
+
+Las etiquetas son bloques de contenido de la forma: 
+
+`&lt;etiqueta&gt;` contenido `&lt;/etiqueta&gt;`
+
+Estas pueden contener texto u otras etiquetas, creando un sistema de árbol. Además, las etiquetas contienen atributos los cuales agregan atributos a la etiqueta, como lo pueden ser: class, id, name, placeholder, etc.
+
+.center[&lt;img src="media/anatomia_HTML.png"&gt;]
+
+---
+
+# Estructura de un HTML
+
+.center[&lt;img src="media/ESTRUCTURA_HTML.png" height="500"&gt;]
+
+---
+name: rvest
+class: inverse, center, middle
+
+# rvest para el web scraping
+
+---
+# rvest &lt;img src="media/rvest.png" align="right" height="139"/&gt;
+
+[rvest](https://github.com/tidyverse/rvest) es un paquete para realizar Web Scraping a página web de forma estática (sin interacción con esta) inspirado en [`beautiful soup`](https://beautiful-soup-4.readthedocs.io/en/latest/#) y [`RoboBrowser`](https://robobrowser.readthedocs.io/en/latest/readme.html)
+
+Las principales funciones de rvest son:
+
+- **read_html**: Extrae la información HTML de la página consultada.
+- **html_node/html_element**: Extrae la información HTML del primer mach realizado, la función recibe una consulta en formato css o xpath.
+- **html_nodes/html_elements**: Extrae la información HTML de todas las coincidencias con la consulta realizada.
+- **html_attr**: Extrae la información del atributo del node consultado.
+- **html_table**: Extrae tablas de la página web consultada.
+- **html_text2**: Extrae el text del node/página consultada.
+
+Referencias:
+- Selector css: [link](https://www.w3schools.com/cssref/css_selectors.asp)
+- Selector xpath: [link](https://www.w3schools.com/xml/xpath_syntax.asp)
+
+---
+name: actividad
+class: inverse, center, middle
+
+# Actividad 1
+
+---
+# Actividad
+
+Utilizando rvest extraiga la información de de los productos en promoción del día en la página web de [mercado libre](https://www.mercadolibre.cl/). Para ello se realizarán los siguientes pasos:
+
+1. Extraer el número de páginas que tiene mercado libre en su sección de promoción del día.
+2. Obtener los siguientes atributos de los productos de la pagina 1:
+  - Nombre
+  - Precio sin descuento
+  - Precio con descuento
+  - Envío gratis
+  - Envío full
+  - Vendedor
+  - URL
+3. Crear una función que extraiga la información de todos los productos en promoción del día.
+
+---
+name: rselenium
+class: inverse, center, middle
+
+# RSelenium
+
+---
+# RSelenium
+
+Selenium Webdriver es un herramienta que nos permite automatizar pruebas de interfaz de usuario (UI), mediante una conexión realizada por Java. 
+
+Para establecer una conexión es requerido que se tenga instalado:
+  - Navegador web
+  - [Webdriver correspondiente](https://www.selenium.dev/documentation/webdriver/getting_started/install_drivers/)
+  - [Java](https://www.java.com/es/download/ie_manual.jsp)
 
 
     </textarea>
