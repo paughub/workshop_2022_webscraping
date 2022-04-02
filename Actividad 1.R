@@ -11,6 +11,14 @@ valor_suma == valor_suma2
 # Son paquetes de funciones que dispone la comunidad para el uso gratuito de estas
 # Ejemplos de estas son tidyverse, rvest, RSleneium
 
-install.packages('tidyverse')
-install.packages('rvest')
-install.packages('RSleneium')
+# install.packages('tidyverse')
+# install.packages('rvest')
+# install.packages('RSelenium')
+
+
+library(tidyverse)
+library(rvest)
+library(RSelenium)
+
+
+
