@@ -65,7 +65,6 @@ class: left, middle
 
 * [**RSelenium**](#rselenium)
 
-* [**Referencias y material complementario**](#adios)
 ]
 
 ] <!--end of right-column-->
@@ -80,7 +79,7 @@ class: inverse, center, middle
 # Recomendaciones Iniciales
 
 
-- Usaremos un script de R compartido para que puedas seguir la ejecución del código. Los scripts se compartirán en la siguiente [carpeta](https://github.com/DiegoHoliwis/Primeros_pasos_R_2021).
+- Usaremos un script de R compartido para que puedas seguir la ejecución del código. Los scripts se compartirán en la siguiente [carpeta](https://github.com/DiegoHoliwis/workshop_2022_webscraping).
 
 - Usaremos el Chat de Zoom para consultas y comentarios del contenido que se está viendo en la clase.
 
