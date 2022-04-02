@@ -74,3 +74,22 @@ attachment(path = "C:\\Users\\diego\\Desktop\\Clase de web scraping\\Clase de we
 smtp(email, verbose = TRUE)
 
 
+# ================
+
+install.packages("rvest")
+remotes::install_github("dmi3kno/polite")
+
+library(polite)
+library(rvest)
+
+session <- bow("https://www.cheese.com/by_type", force = TRUE)
+result <- scrape(session, query=list(t="semi-soft", per_page=100)) %>%
+  html_node("#main-body") %>% 
+  html_nodes("h3") %>% 
+  html_text()
+head(result)
+#> [1] "3-Cheese Italian Blend"  "Abbaye de Citeaux"      
+#> [3] "Abbaye du Mont des Cats" "Adelost"                
+#> [5] "ADL Brick Cheese"        "Ailsa Craig"
+
+
