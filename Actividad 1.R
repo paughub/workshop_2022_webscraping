@@ -8,6 +8,7 @@
 # install.packages('rvest')
 # install.packages('stringr')
 # install.packages('purrr')
+# install.packages('openxlsx')
 
 # library(dplyr)
 # library(rvest)
@@ -21,6 +22,7 @@ library(dplyr)
 library(rvest)
 library(stringr)
 library(purrr)
+library(openxlsx)
 
 # 1) Encuentre el número de páginas de productos en oferta
 # Windows: control + shift + M
@@ -191,10 +193,9 @@ df <- 1:N_Paginas %>%
   })
 
 
-df
+# file.choose()
 
-
-
+openxlsx::write.xlsx(df,'C:\\Users\\diego\\Desktop\\mercado libre.xlsx')
 
 
 
