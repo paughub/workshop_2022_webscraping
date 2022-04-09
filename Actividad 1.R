@@ -73,7 +73,16 @@ pagina %>%
   if_else(is.na(.),'Sin envio gratis',.) %>% 
   if_else(identical(character(0),.),'Sin envio gratis',.)
   
+x = 25
+paste0('hola soy diego y tengo x años')
+paste0('hola soy diego y tengo ',x,' años')
 
 1:length(Nombre) %>% 
-  
+  map_chr(.f = function(x){
+    pagina %>% 
+      html_element(xpath = paste0('//ol[@class = "items_container"]/li[',x,']//span[@class = "promotion-item__shipping"]')) %>% 
+      html_text2() %>% 
+      if_else(is.na(.),'Sin envio gratis',.) %>% 
+      if_else(identical(character(0),.),'Sin envio gratis',.)
+  })
 
