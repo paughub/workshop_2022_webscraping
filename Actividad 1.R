@@ -76,7 +76,7 @@ paste0('hola soy Diego y tengo x años')
 paste0('hola soy Diego y tengo ',x,' años')
 
 
-1:length(Nombre) %>% 
+Envio_Gratis <- 1:length(Nombre) %>% 
   map_chr(.f = function(x){
     pagina %>% 
       html_element(xpath = paste0('//ol[@class = "items_container"]/li[',x,']//span[@class = "promotion-item__shipping"]')) %>% 
@@ -84,4 +84,38 @@ paste0('hola soy Diego y tengo ',x,' años')
       if_else(is.na(.),'Sin envio gratis',.) %>% 
       if_else(identical(character(0),.),'Sin envio gratis',.)
   })
+
+
+Envio_FULL <- 1:length(Nombre) %>% 
+  map_chr(.f = function(x){
+    pagina %>% 
+      html_element(xpath = paste0('//ol[@class = "items_container"]/li[',x,']//svg[@class = "full-icon"]')) %>% 
+      html_text2() %>% 
+      is.na() %>% 
+      if_else('Sin envio full','Con envio full')
+  })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
