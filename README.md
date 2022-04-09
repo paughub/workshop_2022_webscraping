@@ -26,7 +26,7 @@ Requerimientos:
 
 * [R](https://muug.ca/mirror/cran/)
 * [Rstudio](https://www.rstudio.com/products/rstudio/download/#download)
-* [Chrome]
+* [Chrome](https://www.google.com/intl/es/chrome/?brand=UUXU&gclid=CjwKCAjw3cSSBhBGEiwAVII0Z-sJ6AaHCf2ItUS4fMfNRjdTaMxUD04fboTFS4WAdY7FMhjGusPmJBoCmtkQAvD_BwE&gclsrc=aw.ds)
 * [Chrome drive](https://chromedriver.chromium.org/)
 * [Java](https://www.java.com/es/download/ie_manual.jsp)
 
