@@ -14,3 +14,19 @@ Grabación de la clase en [vimeo](https://vimeo.com/user105597673)
 * rvest
 * Actividad
 * RSelenium
+
+
+### Clase 2
+
+* Activiad - Mercado libre
+* RSelenium
+* Actividad - Ripley
+
+Requerimientos:
+
+* [R](https://muug.ca/mirror/cran/)
+* [Rstudio](https://www.rstudio.com/products/rstudio/download/#download)
+* [Chrome]
+* [Chrome drive](https://chromedriver.chromium.org/)
+* [Java](https://www.java.com/es/download/ie_manual.jsp)
+
