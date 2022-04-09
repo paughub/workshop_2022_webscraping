@@ -97,10 +97,18 @@ Envio_FULL <- 1:length(Nombre) %>%
 
 
 
+URL <- pagina %>% 
+  html_elements(xpath = '//a[@class = "promotion-item__link-container"]') %>% 
+  html_attr('href')
 
 
 
-
+df <- tibble(Nombre         = Nombre,
+             Precio_antiguo = oldprice,
+             newprice,
+             Envio_Gratis,
+             Envio_FULL,
+             URL)
 
 
 
