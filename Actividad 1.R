@@ -65,8 +65,6 @@ pagina %>%
   html_elements(xpath = '//span[@class = "promotion-item__shipping"]') %>% 
   html_text2()
 
-
-
 pagina %>% 
   html_element(xpath = '//ol[@class = "items_container"]/li[3]//span[@class = "promotion-item__shipping"]') %>% 
   html_text2() %>% 
@@ -74,8 +72,9 @@ pagina %>%
   if_else(identical(character(0),.),'Sin envio gratis',.)
   
 x = 25
-paste0('hola soy diego y tengo x años')
-paste0('hola soy diego y tengo ',x,' años')
+paste0('hola soy Diego y tengo x años')
+paste0('hola soy Diego y tengo ',x,' años')
+
 
 1:length(Nombre) %>% 
   map_chr(.f = function(x){
