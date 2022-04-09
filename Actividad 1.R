@@ -7,7 +7,7 @@
 # install.packages('dplyr')
 # install.packages('rvest')
 # install.packages('stringr')
-
+# install.packages('purrr')
 
 # library(dplyr)
 # library(rvest)
@@ -20,6 +20,7 @@
 library(dplyr)
 library(rvest)
 library(stringr)
+library(purrr)
 
 # 1) Encuentre el número de páginas de productos en oferta
 # Windows: control + shift + M
@@ -44,12 +45,12 @@ Nombre <- pagina %>%
   html_text2()
 
 
-oldprice <- pagina %>% 
-  html_elements(xpath = '//span[@class = "promotion-item__oldprice"]') %>% 
-  html_text2() %>% 
-  str_remove_all('\\$ ') %>% 
-  str_remove_all('\\.') %>% 
-  as.numeric()
+pagina %>% 
+  html_elements(., xpath = '//span[@class = "promotion-item__oldprice"]') %>% 
+  html_text2(.) %>% 
+  str_remove_all(., '\\$ ') %>% 
+  str_remove_all(.,'\\.') %>% 
+  as.numeric(.)
 
 
 newprice <- pagina %>% 
@@ -63,7 +64,16 @@ newprice <- pagina %>%
 pagina %>% 
   html_elements(xpath = '//span[@class = "promotion-item__shipping"]') %>% 
   html_text2()
+
+
+
+pagina %>% 
+  html_element(xpath = '//ol[@class = "items_container"]/li[3]//span[@class = "promotion-item__shipping"]') %>% 
+  html_text2() %>% 
+  if_else(is.na(.),'Sin envio gratis',.) %>% 
+  if_else(identical(character(0),.),'Sin envio gratis',.)
   
-  
+
+1:length(Nombre) %>% 
   
 
